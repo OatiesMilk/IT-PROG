@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
-    <link rel="stylesheet" href="create_account.html">
+    <link rel="stylesheet" href="public/styles/create_account.css">
 </head>
+
 <body>
     <div class="container">
         <h2>Create Account</h2>
-        <form action="account_login.html" method="GET">
+        <form action="account_login.html" method="GET" id="account_table">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required>
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required>
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+
+            <label for="mobile_number">Mobile Number:</label>
+            <input type="text" id="mobile_number" name="mobile_number" required>
 
             <input type="submit" value="Create Account">
         </form>
