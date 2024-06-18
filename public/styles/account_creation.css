@@ -14,11 +14,11 @@ body {
     width: 350px;
 }
 
-#account_table {
+#register_form {
     display: flex;
     flex-direction: column;
 }
 
-#account_table input {
+#register_form input {
     margin-bottom: 10px;
 }
