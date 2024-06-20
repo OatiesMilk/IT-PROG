@@ -52,3 +52,7 @@ body {
 .header-menu > a > img:hover {
     transform: scale(1.2); /* Increase size on hover */
 }
+
+#container {
+    float: left;
+}
