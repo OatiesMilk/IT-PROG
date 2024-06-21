@@ -5,15 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <link rel="stylesheet" href="public/styles/main_menu.css">
-    
-    
 </head>
 <body>
     <h1>Welcome to the Review Page!</h1>
+    
     <form action="main.html">
         <button type="submit">
             Return to the Main Page
         </button>
     </form>
+
+    <h2>Submit a Review</h2>
+    <form id="reviewForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="review">Review:</label><br>
+        <textarea id="review" name="review" required></textarea><br><br>
+        
+        <button type="submit">Submit Review</button>
+    </form>
+
+    <h2>Reviews</h2>
+    <div id="reviews"></div>
+
+    <script>
+        // Sample reviews array
+        const reviews = [];
+
+        // Function to render reviews
+        function renderReviews() {
+            const reviewsDiv = document.getElementById('reviews');
+            reviewsDiv.innerHTML = ''; // Clear existing reviews
+            reviews.forEach((review, index) => {
+                const reviewElement = document.createElement('div');
+                reviewElement.className = 'review';
+                reviewElement.innerHTML = `
+                    <strong>${review.name}</strong>
+                    <p>${review.text}</p>
+                `;
+                reviewsDiv.appendChild(reviewElement);
+            });
+        }
+
+        // Handle form submission
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const reviewText = document.getElementById('review').value;
+            if (name && reviewText) {
+                reviews.push({ name: name, text: reviewText });
+                renderReviews();
+                // Clear form fields
+                document.getElementById('name').value = '';
+                document.getElementById('review').value = '';
+            }
+        });
+
+        // Initial rendering of reviews
+        renderReviews();
+    </script>
 </body>
 </html>
