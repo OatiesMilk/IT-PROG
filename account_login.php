@@ -31,7 +31,7 @@
             if (password_verify($password, $row['password'])) {
                 // Successful login
                 $_SESSION['username'] = $username;
-                header("Location: main_menu.php");
+                header("Location: main_menu.html");
                 exit();
             } else {
                 $error = "Invalid username or password.";
