@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create an Account</title>
-    <link rel="stylesheet" href="/IT-PROG/MP/css/account_creation.css">
-</head>
-<body>
-    <?php
-    // Start the session
-    session_start();
+<?php
+    $title = "Create an Account";
+    $css = "/IT-PROG/MP/css/account_creation.css"; // Path to the specific CSS for this page
+    include('dependencies/header.php');
 
     // Database connection
-    $conn = mysqli_connect("localhost", "root", "", "machineproject");
+    include('config.php');
+    $conn = mysqli_connect($localhost, "root", "", $database);
 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
@@ -47,31 +40,33 @@
 
     // Close the database connection
     mysqli_close($conn);
-    ?>
+?>
 
-    <div class="container">
-        <h2>Create Account</h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" id="register_form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+<div class="container">
+    <h2>Create Account</h2>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" id="register_form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
 
-            <label for="firstname">First Name:</label>
-            <input type="text" id="firstname" name="firstname" required>
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required>
 
-            <label for="lastname">Last Name:</label>
-            <input type="text" id="lastname" name="lastname" required>
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-            <label for="mobile_num">Mobile Number:</label>
-            <input type="tel" id="mobile_num" name="mobile_num" required>
+        <label for="mobile_num">Mobile Number:</label>
+        <input type="tel" id="mobile_num" name="mobile_num" required>
 
-            <input type="submit" value="Create Account">
-        </form>
-    </div>
-</body>
-</html>
+        <input type="submit" value="Create Account">
+    </form>
+</div>
+
+<?php
+    include('dependencies/footer.php');
+?>

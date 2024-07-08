@@ -1,17 +1,16 @@
 body {
+    display: flex;
     padding: 0%;
     margin: 0%;
 }
 
-.header-row {
+.header {
     display: flex;
     background-color: #242424;
     height: 90px;
     width: 100%;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    z-index: 1;
 }
 
 #header-logo > img {
