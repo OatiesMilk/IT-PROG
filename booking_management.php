@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Your Booking</title>
-    <link rel="stylesheet" href="/IT-PROG/MP/css/booking_management.css">
-</head>
-<body>
-    <?php
+<?php
+    $title = "Manage Your Booking";
+    $css = "/IT-PROG/MP/css/booking_management.css"; // Path to the specific CSS for this page
+    include('dependencies/header.php');
+
     // Start the session
     session_start();
 
     // Database connection
-    $conn = mysqli_connect("localhost", "root", "", "machineproject");
+    include('config.php');
+    $conn = mysqli_connect($localhost, "root", "", $database);
 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
@@ -57,7 +53,7 @@
 
     // Close the database connection
     mysqli_close($conn);
-    ?>
+?>
 
     <div class="container">
         <h2>Manage Your Bookings</h2>
@@ -96,5 +92,7 @@
         }
         ?>
     </div>
-</body>
-</html>
+
+<?php
+    include('dependencies/footer.php');
+?>

@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticket Booking/Management</title>
-    <link rel="stylesheet" href="/IT-PROG/MP/css/ticket_booking.css">
-</head>
-<body>
     <?php
+    $title = "Ticket Booking";
+    $css = "/IT-PROG/MP/css/ticket_booking.css"; // Path to the specific CSS for this page
+    include('dependencies/header.php');
+    
     // Start the session
     session_start();
 
     // Database connection
-    $conn = mysqli_connect("localhost", "root", "", "machineproject");
+    include('config.php');
+    $conn = mysqli_connect($localhost, "root", "", $database);
 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
@@ -84,5 +80,7 @@
             <input type="submit" value="Book Ticket">
         </form>
     </div>
-</body>
-</html>
+
+<?php
+include('dependencies/footer.php');
+?>
