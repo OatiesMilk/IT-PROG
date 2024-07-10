@@ -6,4 +6,97 @@
     <title>Main Page</title>
     <link rel="stylesheet" href="/IT-PROG/MP/css/main_menu.css">
 </head>
+<body>
+    <h1>Event Management</h1>
+
+    <!-- Create Event Form -->
+    <h2>Create Event</h2>
+    <form id="create-event-form">
+        <label for="event-name">Name:</label><br>
+        <input type="text" id="event-name" name="event-name" required><br>
+
+        <label for="event-description">Description:</label><br>
+        <textarea id="event-description" name="event-description" required></textarea><br>
+
+        <label for="event-date">Date:</label><br>
+        <input type="date" id="event-date" name="event-date" required><br>
+
+        <label for="event-time">Time:</label><br>
+        <input type="time" id="event-time" name="event-time" required><br>
+
+        <label for="event-venue">Venue:</label><br>
+        <input type="text" id="event-venue" name="event-venue" required><br>
+
+        <label for="event-capacity">Capacity:</label><br>
+        <input type="number" id="event-capacity" name="event-capacity" required><br>
+
+        <label for="event-categories">Categories/Tags:</label><br>
+        <input type="text" id="event-categories" name="event-categories" placeholder="Separate by commas" required><br><br>
+
+        <button type="submit">Create Event</button>
+    </form>
+
+    <!-- Edit Event Form -->
+    <h2>Edit Event</h2>
+    <form id="edit-event-form">
+        <label for="edit-event-id">Event ID:</label><br>
+        <input type="text" id="edit-event-id" name="edit-event-id" required><br>
+
+        <label for="edit-event-name">Name:</label><br>
+        <input type="text" id="edit-event-name" name="edit-event-name"><br>
+
+        <label for="edit-event-description">Description:</label><br>
+        <textarea id="edit-event-description" name="edit-event-description"></textarea><br>
+
+        <label for="edit-event-date">Date:</label><br>
+        <input type="date" id="edit-event-date" name="edit-event-date"><br>
+
+        <label for="edit-event-time">Time:</label><br>
+        <input type="time" id="edit-event-time" name="edit-event-time"><br>
+
+        <label for="edit-event-venue">Venue:</label><br>
+        <input type="text" id="edit-event-venue" name="edit-event-venue"><br>
+
+        <label for="edit-event-capacity">Capacity:</label><br>
+        <input type="number" id="edit-event-capacity" name="edit-event-capacity"><br>
+
+        <label for="edit-event-categories">Categories/Tags:</label><br>
+        <input type="text" id="edit-event-categories" name="edit-event-categories" placeholder="Separate by commas"><br><br>
+
+        <button type="submit">Edit Event</button>
+    </form>
+
+    <!-- Delete Event Form -->
+    <h2>Delete Event</h2>
+    <form id="delete-event-form">
+        <label for="delete-event-id">Event ID:</label><br>
+        <input type="text" id="delete-event-id" name="delete-event-id" required><br><br>
+
+        <button type="submit">Delete Event</button>
+    </form>
+
+    <!-- Schedule Event Form -->
+    <h2>Schedule Event</h2>
+    <form id="schedule-event-form">
+        <label for="schedule-event-id">Event ID:</label><br>
+        <input type="text" id="schedule-event-id" name="schedule-event-id" required><br>
+
+        <label for="schedule-event-date">Date:</label><br>
+        <input type="date" id="schedule-event-date" name="schedule-event-date" required><br>
+
+        <label for="schedule-event-time">Time:</label><br>
+        <input type="time" id="schedule-event-time" name="schedule-event-time" required><br><br>
+
+        <button type="submit">Schedule Event</button>
+    </form>
+
+    <!-- Manage Event Categories/Tags -->
+    <h2>Manage Event Categories/Tags</h2>
+    <form id="manage-categories-form">
+        <label for="event-categories">Categories/Tags:</label><br>
+        <input type="text" id="event-categories" name="event-categories" placeholder="Separate by commas" required><br><br>
+
+        <button type="submit">Update Categories/Tags</button>
+    </form>
+</body>
 </html>
