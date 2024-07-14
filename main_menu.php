@@ -14,17 +14,17 @@
     <!-- ADMIN SHIT -->
     <!-- <div class="container">
         <div class="topleft">
-            <form action="ticket_management.html" method="get">
+            <form action="ticket_management.php" method="get">
                 <button type="submit">
                     Ticket Management
                 </button>
             </form>
-            <form action="event_management.html" method="get">
+            <form action="event_management.php" method="get">
                 <button type="submit">
                     Event Management
                 </button>
             </form>
-            <form action="report_management.html" method="get">
+            <form action="report_management.php" method="get">
                 <button type="submit">
                     Report Management
                 </button>
