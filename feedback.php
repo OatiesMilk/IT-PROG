@@ -1,3 +1,21 @@
+<?php
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "feedback_db";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT event, rating, comments FROM feedback";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +23,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Report</title>
     <link rel="stylesheet" href="/IT-PROG/MP/css/main_menu.css">
-
 </head>
 <body>
     <h1>Feedback Report</h1>
@@ -18,24 +35,22 @@
             <th>Rating</th>
             <th>Comments</th>
         </tr>
-        <tr>
-            <td>Event 1</td>
-            <td>4.5</td>
-            <td>Great event!</td>
-        </tr>
-        <tr>
-            <td>Event 2</td>
-            <td>4.0</td>
-            <td>Good organization, but could be improved.</td>
-        </tr>
-        <tr>
-            <td>Event 3</td>
-            <td>3.5</td>
-            <td>Average experience.</td>
-        </tr>
+        <?php
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["event"]. "</td><td>" . $row["rating"]. "</td><td>" . $row["comments"]. "</td></tr>";
+            }
+        } else {
+            echo "<tr><td colspan='3'>No feedback available</td></tr>";
+        }
+        ?>
     </table>
 
     <h2>Areas for Improvement</h2>
     <p>Insert summary of areas that need improvement based on the feedback collected.</p>
 </body>
 </html>
+
+<?php
+$conn->close();
+?>
