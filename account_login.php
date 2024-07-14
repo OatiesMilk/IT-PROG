@@ -1,11 +1,12 @@
-<?php
-    $title = "Login Page";
-    include('dependencies/header.php');
-?>
-
-<style>
-    <?php include('css/account_login.css'); ?>
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/account_login.css">
+</head>
+<body>
 
 <?php
     // Database connection
@@ -38,22 +39,15 @@
                 $_SESSION['isadmin'] = $isadmin;
                 // Set a session variable for username
                 $_SESSION['username'] = $username;
-
-                if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 1) {
-                    echo "Welcome, Admin " . $_SESSION['username'] . "!";
-                    // insert here admin-specific functionality
-                } else {
-                    // Redirect to the main menu
-                    header("Location: main_menu.php");
-                    exit();
-                }
+                // Redirect to the main menu
+                header("Location: main_menu.php");
+                exit();
             } else {
                 $error = "Invalid username or password.";
             }
         } else {
             $error = "Invalid username or password.";
         }
-
     }
     mysqli_close($conn);
 ?>

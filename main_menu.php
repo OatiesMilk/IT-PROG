@@ -10,27 +10,9 @@
 </style>
 
     <!-- content -->
-    
-    <!-- ADMIN SHIT -->
-    <!-- <div class="container">
-        <div class="topleft">
-            <form action="ticket_management.php" method="get">
-                <button type="submit">
-                    Ticket Management
-                </button>
-            </form>
-            <form action="event_management.php" method="get">
-                <button type="submit">
-                    Event Management
-                </button>
-            </form>
-            <form action="report_management.php" method="get">
-                <button type="submit">
-                    Report Management
-                </button>
-            </form>
-        </div>
-    </div> -->
+    <?php
+        if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == 0) {
+    ?>
 
     <div class="container">
         <form action="events.php" method="get">
@@ -54,8 +36,36 @@
             </button>
         </form>
     </div>
-    <!-- end of content -->
+    
+    <!-- ADMIN SHIT -->
+    <?php
+        } else { 
+    ?>
 
+    <div class="container">
+        <div class="topleft">
+            <form action="ticket_management.html" method="get">
+                <button type="submit">
+                    Ticket Management
+                </button>
+            </form>
+            <form action="event_management.html" method="get">
+                <button type="submit">
+                    Event Management
+                </button>
+            </form>
+            <form action="report_management.html" method="get">
+                <button type="submit">
+                    Report Management
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <?php
+        }
+    ?>    
+    <!-- end of content -->
 <?php
     include('dependencies/footer.php');
 ?>

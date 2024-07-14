@@ -10,9 +10,6 @@
 </style>
 
 <?php
-// Start the session
-session_start();
-
 // Database connection
 include('config.php');
 $conn = mysqli_connect($localhost, "root", "", $database);
@@ -36,20 +33,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $combo_package = isset($_POST['combo_package']) ? 1 : 0;
     $username = $_SESSION['username'];
     
-    // Fetch user account_id
-    $userQuery = "SELECT account_id FROM accounts WHERE username='$username'";
+    // Fetch user data
+    $userQuery = "SELECT account_id, firstname, lastname, email, mobile_num FROM accounts WHERE username='$username'";
     $userResult = mysqli_query($conn, $userQuery);
     $userRow = mysqli_fetch_assoc($userResult);
     $account_id = $userRow['account_id'];
+    $firstname = $userRow['firstname'];
+    $lastname = $userRow['lastname'];
+    $email = $userRow['email'];
+    $mobile_num = $userRow['mobile_num'];
+
+    // Generate a unique booking_id
+    do {
+        $booking_id = rand(1, 1000);
+        $checkQuery = "SELECT * FROM bookings WHERE booking_id='$booking_id'";
+        $checkResult = mysqli_query($conn, $checkQuery);
+    } while (mysqli_num_rows($checkResult) > 0);
 
     // Insert booking into the database
-    $sql = "INSERT INTO bookings (account_id, event_id, combo_package) VALUES ('$account_id', '$event_id', '$combo_package')";
+    $sql = "INSERT INTO bookings (account_id, event_id, booking_id, username, firstname, lastname, email, mobile_num) 
+            VALUES ('$account_id', '$event_id', '$booking_id', '$username', '$firstname', '$lastname', '$email', '$mobile_num')";
     if (mysqli_query($conn, $sql)) {
         $booking_id = mysqli_insert_id($conn);
-        foreach ($addons as $addon_id) {
-            $addonSql = "INSERT INTO booking_addons (booking_id, addon_id) VALUES ('$booking_id', '$addon_id')";
-            mysqli_query($conn, $addonSql);
-        }
         echo "Booking successful.";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -62,6 +67,7 @@ mysqli_close($conn);
 
 <div class="container">
     <h2>Book Your Ticket</h2>
+
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" id="booking_form">
         <label for="event">Select Event:</label>
         <select id="event" name="event" required>
@@ -72,8 +78,9 @@ mysqli_close($conn);
             ?>
         </select>
 
-        <label for="addons">Select Addons:</label>
-        <select id="addons" name="addons[]" multiple>
+        <label for="addons">Select an Add-on:</label>
+        <select id="addons" name="addons[]" required>
+            <option value="" selected>None</option>
             <?php
             while ($addonRow = mysqli_fetch_assoc($addonsResult)) {
                 echo "<option value='" . $addonRow['addon_id'] . "'>" . $addonRow['addon_name'] . "</option>";

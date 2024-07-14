@@ -1,11 +1,12 @@
-<?php
-    $title = "Create an Account";
-    include('dependencies/header.php');
-?>
-
-<style>
-    <?php include('css/account_creation.css'); ?>
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an account</title>
+    <link rel="stylesheet" href="css/account_creation.css">
+</head>
+<body>
 
 <?php
     // Database connection
@@ -31,7 +32,8 @@
         $new_account_id = $row['max_id'] + 1;
 
         // Insert data into the database with the new account_id
-        $sql = "INSERT INTO accounts (account_id, username, password, firstname, lastname, email, mobile_num) VALUES ('$new_account_id', '$username', '$password', '$firstname', '$lastname', '$email', '$mobile_num')";
+        $sql = "INSERT INTO accounts (account_id, username, password, firstname, lastname, email, mobile_num) 
+                VALUES ('$new_account_id', '$username', '$password', '$firstname', '$lastname', '$email', '$mobile_num')";
 
         if (mysqli_query($conn, $sql)) {
             echo "New account created successfully.";
@@ -72,6 +74,5 @@
     </form>
 </div>
 
-<?php
-    include('dependencies/footer.php');
-?>
+</body>
+</html>
