@@ -72,5 +72,6 @@
     </form>
 </div>
 
-</body>
-</html>
+<?php
+    include('dependencies/footer.php');
+?>

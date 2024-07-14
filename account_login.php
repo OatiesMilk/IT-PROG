@@ -60,11 +60,6 @@
 
 <div class="container">
     <h2>Login</h2>
-    <?php
-    if (isset($error)) {
-        echo "<p style='color:red;'>$error</p>";
-    }
-    ?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" id="login_form">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>

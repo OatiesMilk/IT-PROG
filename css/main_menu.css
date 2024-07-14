@@ -5,34 +5,6 @@ body {
     margin: 0;
 }
 
-.header {
-    display: flex;
-    width: 100%;
-    flex: 0 1 auto; 
-    background-color: bisque;
-}
-
-.first-column, .second-column, .third-column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    height: 50px;
-    padding: 10px;
-}
-
-.first-column{
-    justify-content: flex-start;
-}
-
-.third-column {
-    justify-content: flex-end;
-}
-
-.third-column > form {
-    margin-left: 10px;
-}
-
 .container {
     display: flex;
     justify-content: center;
