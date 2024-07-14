@@ -1,8 +1,13 @@
 <?php
     $title = "Create an Account";
-    $css = "/IT-PROG/MP/css/account_creation.css"; // Path to the specific CSS for this page
     include('dependencies/header.php');
+?>
 
+<style>
+    <?php include('css/account_creation.css'); ?>
+</style>
+
+<?php
     // Database connection
     include('config.php');
     $conn = mysqli_connect($localhost, "root", "", $database);
@@ -67,6 +72,5 @@
     </form>
 </div>
 
-<?php
-    include('dependencies/footer.php');
-?>
+</body>
+</html>

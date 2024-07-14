@@ -1,8 +1,13 @@
 <?php
     $title = "Login Page";
-    $css = "/IT-PROG/MP/css/account_login.css"; // Path to the specific CSS for this page
     include('dependencies/header.php');
+?>
 
+<style>
+    <?php include('css/account_login.css'); ?>
+</style>
+
+<?php
     // Database connection
     include('config.php');
     $conn = mysqli_connect($localhost, "root", "", $database);
@@ -71,6 +76,5 @@
     </form>
 </div>
 
-<?php
-    include('dependencies/footer.php');
-?>
+</body>
+</html>

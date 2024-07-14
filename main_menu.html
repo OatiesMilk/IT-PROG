@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
-    <link rel="stylesheet" href="/IT-PROG/MP/css/main_menu.css">
+    <link rel="stylesheet" href="/css/main_menu.css">
     
     
 </head>
 <body>
-    <h1>Welcome to MaxEvents!</h1>
-    <div class="base">
-        <div class="topleft">
+    <div class="header">
+        <div class="first-column">
+            <h1>Welcome to MaxEvents!</h1>
+        </div>
+
+        <div class="second-column">
+            hi
+        </div>
+
+        <div class="third-column">
             <form action="account_login.php" method="get">
                 <button type="submit">
                     Login
@@ -24,26 +31,26 @@
             </form>
         </div>
     </div>
+
         <!-- ADMIN SHIT -->
     <div class="container">
-        <div class="topleft">
-            <form action="ticket_management.html" method="get">
-                <button type="submit">
-                    Ticket Management
-                </button>
-            </form>
-            <form action="event_management.html" method="get">
-                <button type="submit">
-                    Event Management
-                </button>
-            </form>
-            <form action="report_management.html" method="get">
-                <button type="submit">
-                    Report Management
-                </button>
-            </form>
-        </div>
+        <form action="ticket_management.html" method="get">
+            <button type="submit">
+                Ticket Management
+            </button>
+        </form>
+        <form action="event_management.html" method="get">
+            <button type="submit">
+                Event Management
+            </button>
+        </form>
+        <form action="report_management.html" method="get">
+            <button type="submit">
+                Report Management
+            </button>
+        </form>
     </div>
+
     <div class="container">
         <form action="events.html" method="get">
             <button type="submit">

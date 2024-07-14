@@ -1,22 +1,34 @@
 <?php
     $title = "Main Menu";
-    $css = "/IT-PROG/MP/css/main_menu.css"; // Path to the specific CSS for this page
     include('dependencies/header.php');
 ?>
 
+<style>
+    <?php include('css/main_menu.css');?>
+</style>
+
     <!-- content -->
     <div class="header">
-        <form action="account_login.php" method="get">
-            <button type="submit">
-                Login
-            </button>
-        </form>
-            
-        <form action="account_creation.php" method="get">
-            <button type="submit">
-                Sign up
-            </button>
-        </form>
+        <div class="first-column">
+            <h1>Welcome to MaxEvents!</h1>
+        </div>
+
+        <div class="second-column">
+            hi
+        </div>
+
+        <div class="third-column">
+            <form action="account_login.php" method="get">
+                <button type="submit">
+                    Login
+                </button>
+            </form>
+            <form action="account_creation.php" method="get">
+                <button type="submit">
+                    Sign up
+                </button>
+            </form>
+        </div>
     </div>
 
     <div class="container">

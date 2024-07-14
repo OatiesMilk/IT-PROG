@@ -1,8 +1,13 @@
 <?php
     $title = "Manage Your Booking";
-    $css = "/IT-PROG/MP/css/booking_management.css"; // Path to the specific CSS for this page
     include('dependencies/header.php');
+?>
 
+<style>
+    <?php include('css/booking_management.css'); ?>
+</style>
+
+<?php
     // Start the session
     session_start();
 
