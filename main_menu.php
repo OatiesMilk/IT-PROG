@@ -25,7 +25,7 @@
                 <img src="images/Ticket.png">
             </button>
         </form>
-        <form action="review.html" method="get">
+        <form action="review_page.php" method="get">
             <button type="submit">
                 <img src="images/Review.png">
             </button>

@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+    } else {
+        $username = 'Guest';
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +19,7 @@
 
 <div class="header">
     <div class="first-column">
-        <h1>Welcome to MaxEvents!</h1>
+        <h1>Hello <?php echo htmlspecialchars($username); ?>!</h1>
     </div>
 
     <div class="second-column">
