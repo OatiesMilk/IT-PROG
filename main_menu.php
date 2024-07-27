@@ -38,9 +38,7 @@
     </div>
     
     <!-- ADMIN SHIT -->
-    <?php
-        } else { 
-    ?>
+    <?php } else { ?>
 
     <div class="container">
         <div class="topleft">
@@ -49,7 +47,7 @@
                     Ticket Management
                 </button>
             </form>
-            <form action="event_management.html" method="get">
+            <form action="event_management.php" method="get">
                 <button type="submit">
                     Event Management
                 </button>
@@ -62,9 +60,7 @@
         </div>
     </div>
 
-    <?php
-        }
-    ?>    
+    <?php } ?>    
     <!-- end of content -->
 <?php
     include('dependencies/footer.php');

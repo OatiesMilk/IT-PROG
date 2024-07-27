@@ -23,9 +23,9 @@
     </div>
 
     <div class="second-column">
-        can add something
     </div>
 
+    <?php if (is_null($username)) { ?>
     <div class="third-column">
         <form action="account_login.php" method="get">
             <button type="submit">
@@ -38,4 +38,17 @@
             </button>
         </form>
     </div>
+    <?php } else { ?>
+    
+    <div class="third-column">
+        <form action="account_login.php" method="get">
+            <button type="submit">
+                Logout
+            </button>
+        </form>
+    </div>
+
+    <?php
+    } 
+    ?>
 </div>
